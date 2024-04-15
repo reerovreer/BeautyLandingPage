@@ -20,6 +20,6 @@ public class RegisterViewModel
     
     [DataType(DataType.Password)]
     [Compare(nameof(Password),ErrorMessage = "Пароли не совпадают")]
-    [Display(Name = "Введите пароль")]
+    [Display(Name = "Повторите пароль")]
     public string ConfirmPassword { get; set; }
 }

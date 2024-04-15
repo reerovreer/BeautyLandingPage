@@ -1,8 +1,29 @@
-@model dynamic
+@model LandingPage.ViewModels.LoginViewModel
 
 @{
     ViewBag.Title = "title";
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+<h2>Вход:</h2>
+<div class="text-danger">@Html.ValidationMessage("Incorrect")</div>
+<a asp-action="Register">Зарегистрироваться</a>
+<form asp-action="Login" method="post" asp-antiforgery="true" asp-route-returnUrl="@Model.ReturnUrl">
+    <div>
+        <div class="form-group">
+            <label asp-for="Email"></label>
+            <input type="email" asp-for="Email">
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password"></label>
+            <input type="password" asp-for="Password">
+            <span asp-validation-for="Password"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="RememberMe"></label>
+            <input asp-for="RememberMe">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-outline-info" >Войти</button>
+</form>

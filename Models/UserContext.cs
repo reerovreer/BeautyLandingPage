@@ -3,5 +3,5 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LandingPage.Models;
 
-public class UserContext(DbContextOptions<UserContext> options) : IdentityDbContext(options);
+public class UserContext(DbContextOptions<UserContext> options) : IdentityDbContext<User>(options);
 

@@ -17,6 +17,28 @@
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">Home</a>
+                            </li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <form asp-controller="User" asp-action="SignOut" method="post" asp-antiforgery="true">
+                                    <button type="submit" class="btn btn-info">Выйти</button>
+                                </form>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Register">Регистрация</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Login">Вход</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
         </div>
     </nav>
 </header>
