@@ -1,8 +1,7 @@
+using Microsoft.AspNetCore.Identity;
+
 namespace LandingPage.Models;
 
-public class User
+public class User : IdentityUser
 {
-    public int Id { get; set; }
-    public string UserName { get; set; }
-    public string UserNumber { get; set; }
 }
