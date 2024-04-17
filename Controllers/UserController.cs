@@ -3,7 +3,6 @@ using LandingPage.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Telegram.Bot;
 using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
 namespace LandingPage.Controllers;
@@ -12,27 +11,13 @@ public class UserController : Controller
 {
     private readonly UserManager<User> _userManager;
     private readonly SignInManager<User> _signInManager;
-    private readonly ITelegramBotClient _telegramBotClient;
-    public UserController(UserManager<User> userManager, SignInManager<User> signInManager,ITelegramBotClient telegramBotClient)
+
+    public UserController(UserManager<User> userManager, SignInManager<User> signInManager)
     {
         _userManager = userManager;
         _signInManager = signInManager;
-        _telegramBotClient = telegramBotClient;
-    }
-    [HttpGet,AllowAnonymous]
-    public IActionResult Index()
-    {
-        return View();
     }
 
-    [HttpPost,AllowAnonymous]
-    public IActionResult GetConsult(User user)
-    {
-        long userId = 984891525;
-        string message = $"Имя:{user.UserName}, Номер:{user.PhoneNumber}";
-        _telegramBotClient.SendTextMessageAsync(userId, message);
-        return RedirectToAction("Index");
-    }
     [HttpGet,AllowAnonymous]
     public IActionResult Register()
     {
@@ -52,7 +37,7 @@ public class UserController : Controller
             if (result.Succeeded)
             {
                 await _signInManager.SignInAsync(user, true);
-                return RedirectToAction("Index", "User");
+                return RedirectToAction("Index", "Home");
             }
 
             foreach (var error in result.Errors)
@@ -87,7 +72,7 @@ public class UserController : Controller
                     Redirect(model.ReturnUrl);
                 }
 
-                return RedirectToAction("Index", "User");
+                return RedirectToAction("Index", "Home");
             }
             ModelState.AddModelError(string.Empty,"Некорректное логин или пароль");
         }
@@ -99,6 +84,6 @@ public class UserController : Controller
     public new async Task<IActionResult> SignOut()
     {
         await _signInManager.SignOutAsync();
-        return RedirectToAction("Index", "User");
+        return RedirectToAction("Index", "Home");
     }
 }
