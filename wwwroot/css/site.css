@@ -20,3 +20,76 @@ html {
 body {
   margin-bottom: 60px;
 }
+.cormorant-garamond-light {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 100px;
+  color: #59493B;
+}
+.mt--90{
+  margin-top: -90px;
+}
+.mt--30{
+  margin-top: -30px;
+}
+.montserrat-regular{
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 30px;
+  color: #59493B;
+}
+.square-container {
+  position: relative;
+  width: 100%; /* Ширина контейнера */
+  padding-bottom: 100%; /* Высота контейнера (50% от ширины), создавая квадрат */
+  overflow: hidden; /* Обрезать избыточное содержимое */
+}
+.expand{
+  animation: expand 3s ease-in-out forwards;
+}
+
+.square-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Ширина контента равна ширине родительского элемента */
+  height: 95%; /* Высота контента равна высоте родительского элемента */
+  background-size: cover; /* Растягивает изображение, чтобы оно полностью покрывало контейнер */
+  background-position: top; /* Центрирует изображение в контейнере */
+  animation: shrinkAndExpand 3s ease-in-out forwards; /* Применяем анимацию к элементу */
+}
+.bg-image-for-index-1{
+  background-image: url("../1.jpg"); /* Путь к изображению */
+}
+.bg-image-for-index-2{
+  background-image: url("../2.jpg"); /* Путь к изображению */
+}
+@media screen and (min-width: 992px) {
+  .pl-25 {
+    padding-left: 25%;
+  }
+}
+@keyframes shrinkAndExpand {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes expand {
+  0% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+             

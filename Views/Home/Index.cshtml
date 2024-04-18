@@ -4,19 +4,62 @@
     ViewBag.Title = "title";
     Layout = "_Layout";
 }
-<form asp-action="GetConsult" asp-controller="Home" method="post">
-    <div class="form-floating mb-3">
-      <input asp-for="UserName" class="form-control" id="floatingInput" >
-      <label for="floatingInput">Введите имя</label>
+<div class="container">
+    <div class="row">
+        <!-- Левая панель, занимает половину ширины -->
+        <div class="col-md-6 left-pane">
+            <div class="pl-25 expand">
+                <div class="cormorant-garamond-light">
+                    <div><p>Beauty</p></div>
+                    <div class="mt--90"><p>Mania</p></div>
+                </div>
+                <div class="montserrat-regular mt--30">
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Правая панель, также занимает половину ширины -->
+        <div class="col-md-6 right-pane">
+            <div class="square-container">
+                <div class="square-content bg-image-for-index-1"></div>
+            </div>
+        </div>
     </div>
-    <div class="form-floating">
-        <input asp-for="PhoneNumber" class="form-control" id="floatingPassword" >
-        <label for="floatingPassword">Введите номер</label>
-    </div>
-     <div class="row mt-3">
-       <div class="col text-center">
-         <button type="submit" class="btn btn-primary">Отправить</button>
-       </div>
-     </div>
-</form>
+    <div class="row" id="About">
+              <!-- Левая панель, занимает половину ширины -->
+              <div class="col-md-6 left-pane">
+                  <div class="square-container">
+                                        <div class="square-content bg-image-for-index-2"></div>
+                                    </div>
+              </div>
+              <!-- Правая панель, также занимает половину ширины -->
+              <div class="col-md-6 right-pane">
+                  
+                 <div class="pl-25 expand">
+                                       <div class="cormorant-garamond-light">
+                                           <div><p>Beauty</p></div>
+                                           <div class="mt--90"><p>Mania</p></div>
+                                       </div>
+                                       <div class="montserrat-regular mt--30">
+                                           <p>Lorem ipsum dolor sit amet.</p>
+                                       </div>
+                                   </div> 
+              </div>
+        </div>
+    <form asp-action="GetConsult" asp-controller="Home" method="post">
+        <div class="form-floating mb-3">
+            <input asp-for="UserName" class="form-control" id="floatingInput">
+            <label for="floatingInput">Введите имя</label>
+        </div>
+        <div class="form-floating">
+            <input asp-for="PhoneNumber" class="form-control" id="floatingPassword">
+            <label for="floatingPassword">Введите номер</label>
+        </div>
+        <div class="row mt-3">
+            <div class="col text-center">
+                <button type="submit" class="btn btn-primary">Отправить</button>
+            </div>
+        </div>
+    </form>
+</div>
 
